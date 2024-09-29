@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="wheel" params="prefix suffix">
+    <link name="${prefix}_${suffix}_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://attracts_description/meshes/wheel.dae" scale="0.01 0.01 0.01" />
+        </geometry>
+      </visual>
+
+      <!-- <collision>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+      </collision> -->
+
+      <inertial>
+        <mass value="1.0" />
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+      </inertial>
+    </link>
+  </xacro:macro>
+</robot>

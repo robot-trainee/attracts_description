@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot name="proto1" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find attracts_description)/urdf/mobile_base.xacro" />
+  <xacro:include filename="$(find attracts_description)/urdf/wheel.xacro" />
+
+  <xacro:mobile_base />
+
+  <xacro:wheel prefix="right" suffix="front" />
+  <xacro:wheel prefix="right" suffix="back" />
+  <xacro:wheel prefix="left" suffix="front" />
+  <xacro:wheel prefix="left" suffix="back" />
+
+  <joint name="right_front_wheel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="right_front_wheel" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.0880347 -0.0880347 0.03" rpy="${pi/2} 0 ${pi/4}" />
+  </joint>
+  <joint name="right_back_wheel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="right_back_wheel" />
+    <axis xyz="0 0 1" />
+    <origin xyz="-0.0880347 -0.0880347 0.03" rpy="${pi/2} 0 ${-pi/4}" />
+  </joint>
+  <joint name="left_front_wheel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="left_front_wheel" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.0880347 0.0880347 0.03" rpy="${pi/2} 0 ${3*pi/4}" />
+  </joint>
+  <joint name="left_back_wheel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="left_back_wheel" />
+    <axis xyz="0 0 1" />
+    <origin xyz="-0.0880347 0.0880347 0.03" rpy="${pi/2} 0 ${-3*pi/4}" />
+  </joint>
+</robot>
