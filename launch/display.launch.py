@@ -34,7 +34,15 @@ def generate_launch_description():
         output="screen",
     )
 
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', share_dir_path + '/rviz/display.rviz']
+    )
+
     ld.add_action(robot_state_pub_node)
     ld.add_action(joint_state_pub_gui_node)
+    ld.add_action(rviz_node)
 
     return ld
